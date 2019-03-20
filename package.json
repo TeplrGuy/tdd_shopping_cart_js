@@ -1,0 +1,30 @@
+{
+  "name": "tdd_shopping_cart_js",
+  "version": "1.0.0",
+  "description": "testing tdd with shopping cart in js",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TeplrGuy/tdd_shopping_cart_js.git"
+  },
+  "keywords": [
+    "js",
+    "javascrip",
+    "tdd",
+    "shopping",
+    "cart",
+    "cart"
+  ],
+  "author": "Gilbert Appiah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TeplrGuy/tdd_shopping_cart_js/issues"
+  },
+  "homepage": "https://github.com/TeplrGuy/tdd_shopping_cart_js#readme",
+  "dependencies": {
+    "jest": "^24.5.0"
+  }
+}
