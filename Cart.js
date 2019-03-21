@@ -26,9 +26,15 @@ class Cart {
     }
 
     removeItem(item, quantity) {
+        const intialQuantity = this.items.get(item)
+        const quantityDifference = this.items.get(item) - quantity
+        if (intialQuantity < 0)
+            return "This item is not in your cart"
+        if (quantityDifference < 0)
+            return "You cannot remove more items than you have"
         let tmpArr = [];
         this.items.set(item,
-            this.items.get(item) - quantity
+            quantityDifference
         );
         this.getItems()
             .forEach((v, k) => {

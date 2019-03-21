@@ -50,3 +50,11 @@ test('adding item to the cart', () => {
     expect(cart.removeItem(soap, 1))
     .toBe("soap x4 - $400");
   });
+
+  test('test to remove all items from cart', () => {
+    let cart = new Cart;
+    var soap = new Item('soap',100,true); 
+    cart.addItem(soap,5);
+    expect(cart.removeItem(soap, 5))
+    .toBe("soap x0 - $0");
+  });
