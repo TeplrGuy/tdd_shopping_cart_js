@@ -25,6 +25,19 @@ class Cart {
         this.totalPrice += quantity * newItem.price;
     }
 
+    removeItem(item, quantity) {
+        let tmpArr = [];
+        this.items.set(item,
+            this.items.get(item) - quantity
+        );
+        this.getItems()
+            .forEach((v, k) => {
+                tmpArr.push(`${k.name} x${v} - $${k.price * this.items.get(k)}`)
+        });
+        
+        return tmpArr[0];
+    }
+
     getItemQuantities() {
         let tmpArr = [];
         this.getItems().forEach((v, k) => tmpArr.push(`${k.name} - x${v}`));
@@ -35,19 +48,21 @@ class Cart {
     getItemizedList() {
         let tmpArr = [];
         this.getItems()
-            .forEach((v, k) => tmpArr.push(`${k.name} x${v} - $${k.price * this.items.get(k)}`));//Handbag x1 - $500.00
+            .forEach((v, k) => tmpArr.push(`${k.name} x${v} - $${k.price * this.items.get(k)}`));
         return tmpArr;
 
     }
 
     getItemsonSale() {
         let tmpArr = [];
-        this.getItems().filter((v, k) => k.onSale === true)
+        this.getItems()
             .forEach((v, k) => {
-                tmpArr.push(`${k.name} x${v} - $${k.price * this.items.get(k)}`)
-        });
-        return tmpArr;
+                if (k.onSale === true)
+                    tmpArr.push(`${k.name} x${v} - $${k.price * this.items.get(k)}`)
+            });
+            return tmpArr
     }
+
 }
 
 
